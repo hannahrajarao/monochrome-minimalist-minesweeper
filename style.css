@@ -1,0 +1,44 @@
+:root {
+    /* --light-color: rgb(255, 208, 234); */
+    /* --dark-color: deeppink; */
+    /* --light-color: plum;
+    --dark-color: purple; */
+    --light-color: black;
+    --dark-color: hotpink;
+}
+/* @media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+    }
+} */
+.cell {
+    background-color: var(--light-color);
+    /* border: 0px; */
+    border-color: var(--dark-color);
+    border-style: solid;
+    width: 30px; 
+    aspect-ratio: 1/1;
+}
+.cell:hover {
+    background-color: var(--dark-color);
+}
+.cell[disabled]:hover {
+    background-color: var(--light-color);
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    text-align: center;
+    font-size: large;
+    width: 35px;
+    height: 35px;
+}
+body {
+    color: var(--dark-color);
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    background-color: var(--light-color);
+    font-size: large;
+}
