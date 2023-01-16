@@ -1,19 +1,9 @@
 :root {
-    /* --light-color: rgb(255, 208, 234); */
-    /* --dark-color: deeppink; */
-    /* --light-color: plum;
-    --dark-color: purple; */
-    --light-color: black;
-    --dark-color: hotpink;
+    --light-color: rgb(255, 208, 234);
+    --dark-color: deeppink;
 }
-/* @media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-    }
-} */
 .cell {
     background-color: var(--light-color);
-    /* border: 0px; */
     border-color: var(--dark-color);
     border-style: solid;
     width: 30px; 
