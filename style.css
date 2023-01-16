@@ -9,13 +9,13 @@ button {
     border-style: solid;
     font-family: 'Courier New', Courier, monospace;
 }
-.cell {
-    width: 30px; 
-    aspect-ratio: 1/1;
-}
 button:hover {
     background-color: var(--dark-color);
     color: var(--light-color);
+}
+.cell {
+    width: 30px; 
+    aspect-ratio: 1/1;
 }
 .cell:hover {
     background-color: var(--dark-color);

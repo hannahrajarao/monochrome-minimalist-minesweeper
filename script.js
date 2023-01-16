@@ -3,6 +3,7 @@ const mineCount = 10;
 let remainingMines = mineCount;
 updateMineCount(remainingMines);
 let grid = createGrid(size, 0);
+let flagMode = false;
 
 coords = generateMineCoordinates(mineCount, size);
 enterFlags(coords);
@@ -93,6 +94,7 @@ function numberLogic(grid, i, j) {
   if(number === "f") {
     document.body.append(document.createTextNode("Game Over!"));
     disableAllButtons();
+    //TODO: revealMines();
   }
   else if(number === 0) {
     zeroes(grid, i, j);
@@ -216,6 +218,23 @@ function winCheck() {
   if(won) {
     document.body.append(document.createTextNode("You Won!"));
     disableAllButtons();
+  }
+}
+
+function getColor(varName) {
+  return getComputedStyle(document.body).getPropertyValue(varName);
+}
+
+function toggleFlagMode() {
+  toggleButton = document.getElementById('toggle-flag');
+  if(flagMode === true) {
+    toggleButton.style.color = getColor('--light-color');
+    toggleButton.style.backgroundColor = getColor('--dark-color');
+    flagMode = false;
+  }
+  else {
+    toggleButton.style = '';
+    flagMode = true;
   }
 }
 
