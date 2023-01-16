@@ -147,49 +147,58 @@ function printInTerminal(grid) {
 }
 
 function display(grid) {
-  const body = document.body,
-          tbl = document.createElement('table');
-  for (let i = 0; i < grid.length; i++) {
-      const tr = tbl.insertRow();
-      for (let j = 0; j < grid[i].length; j++) {
-          const td = tr.insertCell();
-          td.id = 'td-'+i+'-'+j;
-          let button = document.createElement("Button");
-          button.id = 'cell-'+i+'-'+j;
-          button.classList.add('cell');
-          button.addEventListener("click", function() {
-            if(!button.classList.contains('flagged')) {
-              removeTileAndShowNumber(button, grid[i][j], td);
-              numberLogic(grid, i, j);
-              let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
-              if(remainingMines === 0 && allMinesExposed)
-                winCheck();
-            }
-          });
-          button.addEventListener("contextmenu", function() {
-            event.preventDefault();
-            if(!button.classList.contains('flagged')) {
-              button.classList.add('flagged');
-              button.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--dark-color');
-              remainingMines -= 1;
-              updateMineCount();
-              let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
-              // console.log(remainingMines === 0 && allMinesExposed)
-              if(remainingMines === 0 && allMinesExposed)
-                winCheck();
-            }
-            else {
-              button.classList.remove('flagged')
-              button.style.backgroundColor = '';
-              remainingMines += 1;
-              updateMineCount();
-            }
-            return false;
-          });
-          td.appendChild(button);
-      }
+    const body = document.body, tbl = document.createElement('table');
+    for (let i = 0; i < grid.length; i++) {
+        const tr = tbl.insertRow();
+        for (let j = 0; j < grid[i].length; j++) {
+            const td = tr.insertCell();
+            td.id = 'td-'+i+'-'+j;
+            let button = document.createElement("Button");
+            button.id = 'cell-'+i+'-'+j;
+            button.classList.add('cell');
+            button.addEventListener("click", function() {
+                if(flagMode) {
+                    rightClick(button);
+                }
+                else {
+                    if(!button.classList.contains('flagged')) {
+                        removeTileAndShowNumber(button, grid[i][j], td);
+                        numberLogic(grid, i, j);
+                        let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
+                        if(remainingMines === 0 && allMinesExposed)
+                        winCheck();
+                    }
+                }
+            });
+            button.addEventListener("contextmenu", function() {
+                event.preventDefault();
+                rightClick(button)
+            });
+            td.appendChild(button);
+            
+        }
+    body.appendChild(tbl);
+    }
+}
+
+function rightClick(button) {
+  if(!button.classList.contains('flagged')) {
+    button.classList.add('flagged');
+    button.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--dark-color');
+    remainingMines -= 1;
+    updateMineCount();
+    let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
+    // console.log(remainingMines === 0 && allMinesExposed)
+    if(remainingMines === 0 && allMinesExposed)
+      winCheck();
   }
-  body.appendChild(tbl);
+  else {
+    button.classList.remove('flagged')
+    button.style.backgroundColor = '';
+    remainingMines += 1;
+    updateMineCount();
+  }
+  return false;
 }
 
 function getButton(i, j) {
@@ -204,12 +213,12 @@ function winCheck() {
   console.log('winCheck')
   let won = true;
   let coordsString = coords.toString();
-  console.log(coordsString)
+//   console.log(coordsString)
   flags = document.getElementsByClassName('flagged');
   console.log('coords', coordsString);
   for(i=0; i<flags.length; i+=2) {
     flagCoord = flags[i].id.charAt(5)+','+flags[i].id.charAt(7);
-    console.log(flagCoord);
+    // console.log(flagCoord);
     if(!coordsString.includes(flagCoord)) {
       won = false;
       break;
@@ -228,25 +237,24 @@ function getColor(varName) {
 function toggleFlagMode() {
   toggleButton = document.getElementById('toggle-flag');
   if(flagMode === true) {
-    toggleButton.style.color = getColor('--light-color');
-    toggleButton.style.backgroundColor = getColor('--dark-color');
+    toggleButton.style = '';
     flagMode = false;
   }
   else {
-    toggleButton.style = '';
     flagMode = true;
+    toggleButton.style.color = getColor('--light-color');
+    toggleButton.style.backgroundColor = getColor('--dark-color');
   }
 }
 
 function printTable(grid) {
-  const body = document.body,
-          tbl = document.createElement('table');
-  for (let i = 0; i < grid.length; i++) {
-      const tr = tbl.insertRow();
-      for (let j = 0; j < grid[i].length; j++) {
-          const td = tr.insertCell();
-          td.appendChild(document.createTextNode(grid[i][j]));
-      }
-  }
-  body.appendChild(tbl);
+    const body = document.body, tbl = document.createElement('table');
+    for (let i = 0; i < grid.length; i++) {
+        const tr = tbl.insertRow();
+        for (let j = 0; j < grid[i].length; j++) {
+            const td = tr.insertCell();
+            td.appendChild(document.createTextNode(grid[i][j]));
+        }
+    }
+    body.appendChild(tbl);
 }
