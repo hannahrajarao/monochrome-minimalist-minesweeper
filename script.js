@@ -258,3 +258,7 @@ function printTable(grid) {
     }
     body.appendChild(tbl);
 }
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}

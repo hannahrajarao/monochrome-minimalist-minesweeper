@@ -5,6 +5,7 @@
 .column {
     float: left;
     width: 50%;
+    padding: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -46,4 +47,7 @@ body {
     font-family:'Courier New', Courier, monospace;
     background-color: var(--light-color);
     font-size: large;
+}
+.dark-mode {
+    --light-color: black;
 }
