@@ -1,11 +1,19 @@
 :root {
-    --light-color: plum;
-    --dark-color: purple;
+    --light-color: rgb(255, 208, 234);
+    --dark-color: deeppink;
 }
-.cell {
+button {
     background-color: var(--light-color);
+    color: var(--dark-color);
     border-color: var(--dark-color);
     border-style: solid;
+    font-family: 'Courier New', Courier, monospace;
+}
+button:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+.cell {
     width: 30px; 
     aspect-ratio: 1/1;
 }
