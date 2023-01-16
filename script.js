@@ -147,7 +147,7 @@ function printInTerminal(grid) {
 }
 
 function display(grid) {
-    const body = document.body, tbl = document.createElement('table');
+    const body = document.body, tbl = document.getElementById('board');
     for (let i = 0; i < grid.length; i++) {
         const tr = tbl.insertRow();
         for (let j = 0; j < grid[i].length; j++) {

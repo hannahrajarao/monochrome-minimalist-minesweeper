@@ -2,6 +2,13 @@
     --light-color: rgb(255, 208, 234);
     --dark-color: deeppink;
 }
+.column {
+    float: left;
+    width: 50%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 button {
     background-color: var(--light-color);
     color: var(--dark-color);

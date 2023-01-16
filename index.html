@@ -7,11 +7,16 @@
     </head>
     <body>
         <h1>Monochrome Minimalist Minesweeper</h1>
-        <h2>Instructions</h2>
-        <p>Left click to reveal tile. Right click or <button id="toggle-flag" onclick="toggleFlagMode()">Toggle flag mode</button> to flag mine.</p>
-        <p>Number in cell shows number of mines surrounding it.</p>
+        <div class="column">
+            <h2>Instructions</h2>
+            <p>Left click to reveal tile. Right click or <button id="toggle-flag" onclick="toggleFlagMode()">Toggle flag mode</button> to flag mine.</p>
+            <p>Number in cell shows number of mines surrounding it.</p>
+        </div>
         
-        <p>Remaining mines: <div id="remaining-mines" style="display: inline;"></div></p>
+        <div class="column">
+            <p>Remaining mines: <div id="remaining-mines"></div></p>
+            <table id="board"></table>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
