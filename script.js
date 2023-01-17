@@ -51,7 +51,7 @@ function generateMineCoordinates(mineCount, size) {
 function enterFlags(coords) {
     for (let i = 0; i < coords.length; i++) {
         let c = coords[i]
-        grid[c[0]][c[1]] = 'f'
+        grid[c[0]][c[1]] = '*';
     }
 }
 
@@ -91,7 +91,7 @@ function disableAllButtons() {
 
 function numberLogic(grid, i, j) {
     number = grid[i][j];
-    if (number === "f") {
+    if (number === "*") {
         document.body.append(document.createTextNode("Game Over!"));
         disableAllButtons();
         //TODO: revealMines();
