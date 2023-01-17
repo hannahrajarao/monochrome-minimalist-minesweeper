@@ -210,15 +210,12 @@ function updateMineCount() {
 }
 
 function winCheck() {
-    console.log('winCheck')
     let won = true;
     let coordsString = coords.toString();
-    //   console.log(coordsString)
     flags = document.getElementsByClassName('flagged');
     console.log('coords', coordsString);
     for (i = 0; i < flags.length; i += 2) {
         flagCoord = flags[i].id.charAt(5) + ',' + flags[i].id.charAt(7);
-        // console.log(flagCoord);
         if (!coordsString.includes(flagCoord)) {
             won = false;
             break;
