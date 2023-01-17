@@ -4,6 +4,7 @@ let remainingMines = mineCount;
 updateMineCount(remainingMines);
 let grid = createGrid(size, 0);
 let flagMode = false;
+let gameOver = false;
 
 coords = generateMineCoordinates(mineCount, size);
 enterFlags(coords);
@@ -100,6 +101,14 @@ function revealMines(text) {
             }
         }
     }
+    let coordsString = coords.toString();
+    flags = document.getElementsByClassName('flagged');
+    for (i = 0; i < flags.length; i += 2) {
+        flagCoord = flags[i].id.charAt(5) + ',' + flags[i].id.charAt(7);
+        if (!coordsString.includes(flagCoord)) {
+            
+        }
+    }
 }
 
 function numberLogic(grid, i, j) {
@@ -144,7 +153,6 @@ function zeroes(grid, i, j) {
             removeTileAndShowNumber(button, grid[i_1][j_1], document.getElementById('td-' + i_1 + '-' + j_1))
             zeroes(grid, i_1, j_1);
         }
-
     }
 }
 
@@ -246,6 +254,7 @@ function winCheck() {
         }
     }
     if (won) {
+        gameOver = true;
         document.body.append(document.createTextNode("You Won!"));
         disableAllButtons();
     }
