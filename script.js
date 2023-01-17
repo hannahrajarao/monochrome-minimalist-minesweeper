@@ -269,8 +269,12 @@ function chooseColorScheme(color) {
     
     const colors = {
         'pink': ['rgb(255, 208, 234)', 'deeppink'],
-        'purple': ['plum', 'purple']
+        'purple': ['plum', 'purple'],
+        'blue': ['lightblue', 'blue'],
+        'green': ['limegreen', 'green']
     };
     document.documentElement.style.setProperty('--light-color', colors[color][0]);
     document.documentElement.style.setProperty('--dark-color', colors[color][1]);
+    toggleFlagMode(); //refresh flag mode to update button color
+    toggleFlagMode();
 }
