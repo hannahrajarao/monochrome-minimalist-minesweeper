@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings</title>
+        <link rel="stylesheet" type="text/css" href = "style.css"/>
+        <style>
+            .dark {
+                background-color: black;
+            }
+            #pink {
+                color: deeppink;
+                background-color: rgb(255, 208, 234);
+                border-color: deeppink;
+            }
+            #purple {
+                color: purple;
+                background-color: plum;
+                border-color: purple;
+            }
+            #blue {
+                color: blue;
+                background-color: lightblue;
+                border-color: blue;
+            }
+            #green {
+                color: limegreen;
+                background-color: lawngreen;
+                border-color: limegreen;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Settings</h1>
+        <button id="pink" onclick="chooseColorScheme('pink')">Pink</button>
+        <button id="purple" onclick="chooseColorScheme('purple')">Purple</button>
+        <button id="blue" onclick="chooseColorScheme('blue')">Blue</button>
+        <button id="green" onclick="chooseColorScheme('green')">Green</button>
+        <a href="index.html">back</a>
+        <script src="script.js"></script>
+    </body>
+</html>

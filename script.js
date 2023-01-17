@@ -264,3 +264,13 @@ function toggleDarkMode() {
     toggleFlagMode(); //refresh flag mode to update button color
     toggleFlagMode();
 }
+
+function chooseColorScheme(color) {
+    
+    const colors = {
+        'pink': ['rgb(255, 208, 234)', 'deeppink'],
+        'purple': ['plum', 'purple']
+    };
+    document.documentElement.style.setProperty('--light-color', colors[color][0]);
+    document.documentElement.style.setProperty('--dark-color', colors[color][1]);
+}
