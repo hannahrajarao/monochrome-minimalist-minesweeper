@@ -168,6 +168,12 @@ function display(grid) {
                         if (remainingMines === 0 && allMinesExposed)
                             winCheck();
                     }
+                    if(document.getElementsByClassName('cell').length === mineCount) {
+                        for(const cell of document.getElementsByClassName('cell')) {
+                            if(!cell.classList.contains('flagged'))
+                                rightClick(cell);
+                        }
+                    }
                 }
             });
             button.addEventListener("contextmenu", function () {
