@@ -261,4 +261,6 @@ function printTable(grid) {
 
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+    toggleFlagMode(); //refresh flag mode to update button color
+    toggleFlagMode();
 }
