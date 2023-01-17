@@ -2,6 +2,9 @@
     --light-color: rgb(255, 208, 234);
     --dark-color: deeppink;
 }
+* {
+    text-align: center;
+}
 .column {
     float: left;
     width: 50%;
