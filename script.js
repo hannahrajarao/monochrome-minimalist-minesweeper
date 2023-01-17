@@ -274,4 +274,7 @@ function chooseColorScheme(color) {
     document.documentElement.style.setProperty('--dark-color', colors[color][1]);
     toggleFlagMode(); //refresh flag mode to update button color
     toggleFlagMode();
+    for(const flaggedCell of document.getElementsByClassName('flagged')) {
+        flaggedCell.style.backgroundColor = getColor('--dark-color');
+    }
 }
