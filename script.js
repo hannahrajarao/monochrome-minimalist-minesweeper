@@ -213,7 +213,6 @@ function winCheck() {
     let won = true;
     let coordsString = coords.toString();
     flags = document.getElementsByClassName('flagged');
-    console.log('coords', coordsString);
     for (i = 0; i < flags.length; i += 2) {
         flagCoord = flags[i].id.charAt(5) + ',' + flags[i].id.charAt(7);
         if (!coordsString.includes(flagCoord)) {
