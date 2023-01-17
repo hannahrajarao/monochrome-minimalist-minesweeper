@@ -105,7 +105,13 @@ function revealMines(text) {
 function numberLogic(grid, i, j) {
     number = grid[i][j];
     if (number === "*") {
+        gameOver = true;
         document.body.append(document.createTextNode("Game Over!"));
+        playAgain = document.createElement('Button');
+        playAgain.textContent = 'Play again';
+        playAgain.onclick = function(){location=location};
+        document.body.appendChild(document.createElement("br"));
+        document.body.append(playAgain);
         revealMines("*");
         disableAllButtons();
     }
