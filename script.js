@@ -184,7 +184,7 @@ function display(grid) {
 function rightClick(button) {
     if (!button.classList.contains('flagged')) {
         button.classList.add('flagged');
-        button.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--dark-color');
+        button.style.backgroundColor = getColor('--dark-color');
         remainingMines -= 1;
         updateMineCount();
         let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
