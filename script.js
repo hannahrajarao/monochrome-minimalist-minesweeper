@@ -89,12 +89,25 @@ function disableAllButtons() {
         button.disabled = true;
 }
 
+function revealMines() {
+    for(const mineCoord of coords) {
+        let button = getButton(mineCoord[0], mineCoord[1]);
+        if(button) {
+            if(!button.classList.contains('flagged')){
+                button.style.color = getColor('--light-color');
+                button.style.backgroundColor = getColor('--dark-color');
+                button.appendChild(document.createTextNode("*"));
+            }
+        }
+    }
+}
+
 function numberLogic(grid, i, j) {
     number = grid[i][j];
     if (number === "*") {
         document.body.append(document.createTextNode("Game Over!"));
+        revealMines();
         disableAllButtons();
-        //TODO: revealMines();
     }
     else if (number === 0) {
         zeroes(grid, i, j);
