@@ -284,7 +284,8 @@ function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     toggleFlagMode(); //refresh flag mode to update button color
     toggleFlagMode();
-    revealMines('');
+    if(gameOver)
+        revealMines('');
 }
 
 function chooseColorScheme(color) {
@@ -302,5 +303,6 @@ function chooseColorScheme(color) {
     for(const flaggedCell of document.getElementsByClassName('flagged')) {
         flaggedCell.style.backgroundColor = getColor('--dark-color');
     }
-    revealMines('');
+    if(gameOver)
+        revealMines('');
 }
