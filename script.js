@@ -89,14 +89,14 @@ function disableAllButtons() {
         button.disabled = true;
 }
 
-function revealMines() {
+function revealMines(text) {
     for(const mineCoord of coords) {
         let button = getButton(mineCoord[0], mineCoord[1]);
         if(button) {
             if(!button.classList.contains('flagged')){
                 button.style.color = getColor('--light-color');
                 button.style.backgroundColor = getColor('--dark-color');
-                button.appendChild(document.createTextNode("*"));
+                button.appendChild(document.createTextNode(text));
             }
         }
     }
@@ -106,7 +106,7 @@ function numberLogic(grid, i, j) {
     number = grid[i][j];
     if (number === "*") {
         document.body.append(document.createTextNode("Game Over!"));
-        revealMines();
+        revealMines("*");
         disableAllButtons();
     }
     else if (number === 0) {
@@ -278,6 +278,7 @@ function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     toggleFlagMode(); //refresh flag mode to update button color
     toggleFlagMode();
+    revealMines('');
 }
 
 function chooseColorScheme(color) {
@@ -295,4 +296,5 @@ function chooseColorScheme(color) {
     for(const flaggedCell of document.getElementsByClassName('flagged')) {
         flaggedCell.style.backgroundColor = getColor('--dark-color');
     }
+    revealMines('');
 }
