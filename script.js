@@ -85,7 +85,7 @@ function enterNumbers(coords) {
     }
 }
 
-function disableAllButtons() {
+function disableAllCells() {
     for (const button of document.getElementsByClassName('cell'))
         button.disabled = true;
 }
@@ -116,13 +116,13 @@ function numberLogic(grid, i, j) {
     if (number === "*") {
         gameOver = true;
         document.body.append(document.createTextNode("Game Over!"));
+        document.body.appendChild(document.createElement("br"));
         playAgain = document.createElement('Button');
         playAgain.textContent = 'Play again';
         playAgain.onclick = function(){location=location};
-        document.body.appendChild(document.createElement("br"));
         document.body.append(playAgain);
         revealMines("*");
-        disableAllButtons();
+        disableAllCells();
     }
     else if (number === 0) {
         zeroes(grid, i, j);
@@ -256,7 +256,12 @@ function winCheck() {
     if (won) {
         gameOver = true;
         document.body.append(document.createTextNode("You Won!"));
-        disableAllButtons();
+        document.body.appendChild(document.createElement("br"));
+        playAgain = document.createElement('Button');
+        playAgain.textContent = 'Play again';
+        playAgain.onclick = function(){location=location};
+        document.body.append(playAgain);
+        disableAllCells();
     }
 }
 
