@@ -103,10 +103,15 @@ function revealMines(text) {
     }
     let coordsString = coords.toString();
     flags = document.getElementsByClassName('flagged');
-    for (i = 0; i < flags.length; i += 2) {
-        flagCoord = flags[i].id.charAt(5) + ',' + flags[i].id.charAt(7);
+    for (let k = 0; k < flags.length; k++) {
+        const i = flags[k].id.charAt(5);
+        const j = flags[k].id.charAt(7)
+        flagCoord = i + ',' + j;
         if (!coordsString.includes(flagCoord)) {
-            
+            let cell = getButton(i, j);
+            cell.style.color = getColor('--dark-color');
+            cell.style.backgroundColor = getColor('--light-color');
+            cell.appendChild(document.createTextNode(text));
         }
     }
 }
