@@ -12,6 +12,8 @@ enterNumbers(coords);
 let topGrid = createGrid(size, 1);
 let ended = false;
 
+chooseColorScheme(localStorage.getItem('color'));
+
 printInTerminal(grid);
 display(grid);
 
@@ -313,6 +315,7 @@ function chooseColorScheme(color) {
         'blue': ['lightblue', 'blue'],
         'green': ['limegreen', 'green']
     };
+    localStorage.setItem("color", color);
     document.documentElement.style.setProperty('--light-color', colors[color][0]);
     document.documentElement.style.setProperty('--dark-color', colors[color][1]);
     toggleFlagMode(); //refresh flag mode to update button color
