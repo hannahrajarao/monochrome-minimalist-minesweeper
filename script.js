@@ -226,7 +226,6 @@ function rightClick(button) {
         remainingMines -= 1;
         updateMineCount();
         let allMinesExposed = document.getElementsByClassName('cell').length === document.getElementsByClassName('flagged').length
-        // console.log(remainingMines === 0 && allMinesExposed)
         if (remainingMines === 0 && allMinesExposed)
             winCheck();
     }
@@ -308,7 +307,6 @@ function toggleDarkMode() {
 }
 
 function chooseColorScheme(color) {
-    
     const colors = {
         'pink': ['rgb(255, 208, 234)', 'deeppink'],
         'purple': ['plum', 'purple'],
