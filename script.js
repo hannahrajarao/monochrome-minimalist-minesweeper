@@ -13,6 +13,8 @@ let topGrid = createGrid(size, 1);
 let ended = false;
 
 chooseColorScheme(localStorage.getItem('color'));
+if(localStorage.getItem('dark-mode') === 'dark')
+    toggleDarkMode();
 
 printInTerminal(grid);
 display(grid);
@@ -301,6 +303,10 @@ function printTable(grid) {
 }
 
 function toggleDarkMode() {
+    if(localStorage.getItem('dark-mode') == 'dark')
+        localStorage.setItem('dark-mode', 'light');
+    else
+        localStorage.setItem('dark-mode', 'dark');
     document.body.classList.toggle('dark-mode');
     toggleFlagMode(); //refresh flag mode to update button color
     toggleFlagMode();
