@@ -9,8 +9,6 @@ let gameOver = false;
 coords = generateMineCoordinates(mineCount, size);
 enterFlags(coords);
 enterNumbers(coords);
-let topGrid = createGrid(size, 1);
-let ended = false;
 
 chooseColorScheme(localStorage.getItem('color'));
 if(localStorage.getItem('dark-mode') === 'dark')
