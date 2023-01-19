@@ -14,7 +14,7 @@ let ended = false;
 
 chooseColorScheme(localStorage.getItem('color'));
 if(localStorage.getItem('dark-mode') === 'dark')
-    toggleDarkMode();
+    document.body.classList.add('dark-mode');
 
 printInTerminal(grid);
 display(grid);
