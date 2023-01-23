@@ -5,4 +5,4 @@
 - ~~Dark Mode? (For playing at night)~~
 - Add a timer
 - Choose board size and mine count
-- Reveal uncovered mines when losing
+- ~~Reveal uncovered mines when losing~~
