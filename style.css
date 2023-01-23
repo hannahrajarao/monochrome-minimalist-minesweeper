@@ -52,6 +52,9 @@ body {
     background-color: var(--light-color);
     font-size: large;
 }
+a {
+    color: var(--dark-color);
+}
 .dark-mode {
     --light-color: black;
 }
