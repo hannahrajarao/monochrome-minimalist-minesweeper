@@ -317,7 +317,7 @@ function chooseColorScheme(color) {
         'pink': ['rgb(255, 208, 234)', 'deeppink'],
         'purple': ['plum', 'purple'],
         'blue': ['lightblue', 'blue'],
-        'green': ['limegreen', 'green']
+        'green': ['rgb(146,193,77)', 'rgb(59,99,3)']
     };
     if(!color || color === 'null')
         color = 'pink';
