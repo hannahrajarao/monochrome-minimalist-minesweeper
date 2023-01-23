@@ -319,7 +319,7 @@ function chooseColorScheme(color) {
         'blue': ['lightblue', 'blue'],
         'green': ['limegreen', 'green']
     };
-    if(color === 'null')
+    if(!color || color === 'null')
         color = 'pink';
     localStorage.setItem("color", color);
     document.documentElement.style.setProperty('--light-color', colors[color][0]);
